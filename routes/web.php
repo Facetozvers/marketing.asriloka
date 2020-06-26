@@ -22,4 +22,5 @@ Route::get('/profile', 'ProfileController@index');
 
 Route::get('/listing', 'ListingController@index');
 Route::get('/listing/detail/{id}', 'ListingController@detail');
+Route::get('/listing/new', 'ListingController@new');
 

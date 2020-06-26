@@ -19,4 +19,8 @@ class ListingController extends Controller
         $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         return view('listing.detail', ['listings' => $data]);
     }
+
+    public function new(){
+        return view('listing.new');
+    }
 }

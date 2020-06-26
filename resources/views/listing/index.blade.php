@@ -15,7 +15,7 @@
                         <h4 class="card-title"> Listing Saya</h4>
                     </div>
                     <div class="col-6">
-                        <a class="btn btn-primary float-right" href="">Request Baru</a>
+                        <a class="btn btn-primary float-right" href="/listing/new">Request Baru</a>
                     </div>
                 </div>
             </div>
