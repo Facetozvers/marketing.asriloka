@@ -16,13 +16,13 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-8">
                         <div class="form-group">
                             <label>Judul</label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4">
                         <div class="form-group">
                             <label>Jenis</label>
                             <select class="form-control" id="sel1">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-6">
                         <div class="form-group">
                             <label>Sertifikat</label>
                             <select class="form-control" id="sel1">
@@ -46,17 +46,60 @@
                             </select> 
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-6">
                         <div class="form-group">
-                            <label>Sertifikat</label>
+                            <label>Tipe Penjualan</label>
                             <select class="form-control" id="sel1">
-                                <option selected>Hak Milik</option>
-                                <option>Hak Pakai</option>
-                                <option>Girik</option>
-                                <option>HGB</option>
+                                <option selected>Jual</option>
+                                <option>Sewa</option>
+                                <option>Jual / Sewa</option>
                             </select> 
                         </div>
                     </div>
+                </div>
+                <p class="pt-3">Lokasi</p>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Kota</label>
+                        <select class="form-control" id="sel1">
+                            <option selected>Jual</option>
+                            <option>Sewa</option>
+                            <option>Jual / Sewa</option>
+                        </select>
+                    </div>                
+                    <div class="col-6">
+                        <label>Wilayah</label>
+                        <select class="form-control" id="sel1">
+                            <option selected>Jual</option>
+                            <option>Sewa</option>
+                            <option>Jual / Sewa</option>
+                        </select>
+                    </div>  
+                    <div class="col-12 pt-2">
+                        <div class="form-group">
+                            <label>Alamat Lengkap</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>              
+                </div>
+                <p class="pt-3">Kelengkapan Rumah</p>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Kamar Tidur</label>
+                        <input type="text" placeholder="Banyak kamar" class="form-control">
+                    </div>                
+                    <div class="col-3">
+                        <label>Kamar Mandi</label>
+                        <input type="text" placeholder="Banyak kamar" class="form-control">
+                    </div>                
+                    <div class="col-3">
+                        <label>Kapasitas Garasi (isi 0 jika tidak ada)</label>
+                        <input type="text" placeholder="Kapasitas garasi" class="form-control">
+                    </div>                
+                    <div class="col-3">
+                        <label>Luas Tanah (m<sup>2</sup>)</label>
+                        <input type="text" placeholder="Luas tanah" class="form-control">
+                    </div>               
                 </div>
             </div>
         </div>     
