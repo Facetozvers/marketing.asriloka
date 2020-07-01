@@ -18,6 +18,12 @@
                         <a class="btn btn-primary float-right" href="/listing/new">Request Baru</a>
                     </div>
                 </div>
+                    @if(Session::has('message'))
+                    <div class="alert {{Session::GET('alert-class')}} alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button> 
+                        <strong>{{ Session::get('message') }}</strong>
+                    </div>
+                    @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -25,6 +31,9 @@
                         <thead class=" text-primary">
                             <th style="width:45%">
                                 Judul
+                            </th>
+                            <th>
+                                ID Properti
                             </th>
                             <th>
                                 Tanggal Request
@@ -36,14 +45,17 @@
                                 
                             </th>
                         </thead>
-                        @foreach($listings as $listing)
                         <tbody>
+                        @foreach($listings as $listing)
                             <tr>
                                 <td>
                                     {{$listing->nama_listing}}
                                 </td>
                                 <td>
-                                    {{$listing->created_at}}
+                                    {{$listing->id}}
+                                </td>
+                                <td>
+                                    {{$listing->created_at->format('j F Y')}}
                                 </td>
                                 <td>
                                     {{$listing->Approval}}
@@ -63,8 +75,8 @@
                                 </div>
                                 </td>
                             </tr>
-                        </tbody>
                         @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

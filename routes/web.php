@@ -23,4 +23,10 @@ Route::get('/profile', 'ProfileController@index');
 Route::get('/listing', 'ListingController@index');
 Route::get('/listing/detail/{id}', 'ListingController@detail');
 Route::get('/listing/new', 'ListingController@new');
+Route::post('/listing/new', 'ListingController@request');
+
+Route::get('multiple-file-upload', 'MultipleUploadController@index');
+
+Route::post('multiple-file-upload/upload', 'MultipleUploadController@upload')->name('upload');
+
 

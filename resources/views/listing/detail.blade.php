@@ -73,7 +73,7 @@
                 <div class="row">
                     <div class="col-12">
                     <p>Deskripsi : <br>
-                        {!!$listings->desc!!}
+                        {!! nl2br(e($listings->desc)) !!}
                         </p>
                         <hr>
                     </div>
