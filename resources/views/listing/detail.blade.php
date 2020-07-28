@@ -34,6 +34,10 @@
                         {{$listings->TipePenjualan}}
                         </p>
                         <hr>
+                        <p>Fee untuk PT.BAF <br>
+                        {{$listings->persenan}}
+                        </p>
+                        <hr>
                         <p>Kamar Tidur : <br>
                         {{$listings->kamar}}
                         </p>
@@ -127,6 +131,35 @@
                             Restaurant, 
                         @endif
                     </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Informasi Lister</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Nama :<br>
+                        {{$lister->name}}
+                        </p>
+                        <hr>
+                        <p>Email :<br>
+                        {{$lister->display_email}}
+                        </p>
+                        <hr>
+                    </div>
+                    <div class="col-6">
+                        <p>No Marketing :<br>
+                        {{$lister->no_kepegawaian}}
+                        </p>
+                        <hr>
+                        <p>HP :<br>
+                        {{$lister->phone_number}}
+                        </p>
+                        <hr>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
                 <p class="card-category">*lengkapi data - data berikut</p>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-8">
@@ -64,18 +64,19 @@
                                 <input class="form-control" type="number" name="harga" required>
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Fee untuk PT.BAF (persen)</label>
+                                <input class="form-control" type="number" name="persenan" required>
+                            </div>
+                        </div>
                     </div>
                     <p class="pt-3">Lokasi</p>
                     <div class="row">
                         <div class="col-6">
                         <div class="form-group">
                             <label>Kota</label>
-                            <select class="form-control" name="kota" id="">
-                                <option value = "Jakarta Timur" selected>Jakarta Timur</option>
-                                <option>Jakarta Barat</option>
-                                <option>Jakarta Pusat</option>
-                                <option>Jakarta Selatan</option>
-                            </select>
+                            <input class="form-control" type="text" name="kota" placeholder="" required>
                         </div>
                         </div>                
                         <div class="col-6">
@@ -200,10 +201,20 @@
                             </div>
                         </div>
                     </div>
+                    <button type="button" id="btn1">Tambah Gambar</button>
+                    <div class="row" id="gambar">
+                        <div class="col-3">
+                        <div class="form-group" id="pic">
+                            <label>Gambar</label>
+                            <input type="file" name="gambar[]" class="form-control-file">
+                        </div>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>     
     </div>
 </div>
+
 @endsection

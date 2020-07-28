@@ -19,66 +19,6 @@
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="blue">
-            <!--
-            Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-            -->
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                    CT
-                </a>
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Asriloka
-                </a>
-            </div>
-            <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="{{request()->is('dashboard') || request()->is('/') ? 'active' : '' }}">
-                        <a href="/dashboard">
-                            <i class="now-ui-icons design_app"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="{{request()->is('listing') ? 'active' : '' }}">
-                        <a href="/listing">
-                            <i class="now-ui-icons education_atom"></i>
-                            <p>Listing Saya</p>
-                        </a>
-                    </li>
-                    <li class="{{(request()->is('listing/all')) ? 'active' : '' }}">
-                        <a href="/listing/all">
-                            <i class="now-ui-icons education_atom"></i>
-                            <p>Cari Listing</p>
-                        </a>
-                    </li>
-                    <li class="{{(request()->is('transaction*')) ? 'active' : '' }}">
-                        <a href="/transaction">
-                            <i class="now-ui-icons education_atom"></i>
-                            <p>Transaksi</p>
-                        </a>
-                    </li>
-                    <li class="{{(request()->is('training*')) ? 'active' : '' }}">
-                        <a href="/training">
-                            <i class="now-ui-icons education_atom"></i>
-                            <p>Training</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/koneksi">
-                            <i class="now-ui-icons location_map-big"></i>
-                            <p>Koneksi</p>
-                        </a>
-                    </li>
-                    
-                    <li class="active-pro">
-                        <a href="/examples/upgrade.html">
-                            <i class="now-ui-icons users_single-02"></i>
-                            <p>{{Auth::user()->name}}</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
@@ -115,25 +55,6 @@
                                         <span class=" d-md-block">Asriloka.com</span>
                                     </p>
                                 </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="now-ui-icons users_single-02"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block">{{Auth::user()->name}}</span>
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/profile">Profile</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
                             </li>
                         </ul>
                     </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Listing;
 use App\ListingFacilities;
+use App\User;
 
 class ListingController extends Controller
 {
@@ -14,16 +15,23 @@ class ListingController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
+    public function allListing(Request $request){
+        $listings = Listing::where('Approval', 'Approved')->get();
+
+        return view('listing.all_listing', ['listings' => $listings]);
+    }
     
-    public function index(){
+    public function listingsaya(){
         
-        $listings = Listing::where('lister_id', Auth::user()->id)->get();
+        $listings = Listing::where('lister_id', Auth::user()->no_kepegawaian)->get();
         return view('listing.index', ['listings' => $listings]);
     }
 
     public function detail($id){
         $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
-        return view('listing.detail', ['listings' => $data]);
+        $lister = DB::table('users')->where('no_kepegawaian','=',$data->lister_id)->select('users.name','users.phone_number','users.no_kepegawaian','users.display_email')->first();
+        return view('listing.detail', ['listings' => $data, 'lister' => $lister]);
     }
 
     public function new(){
@@ -31,14 +39,16 @@ class ListingController extends Controller
     }
 
     public function request(Request $request){
+
         $listing = new Listing;
-        $listing->lister_id = Auth::id();
+        $listing->lister_id = Auth::user()->no_kepegawaian;
         $listing->nama_listing = $request->judul;
         $listing->jenis_listing = $request->jenis_listing;
         $listing->kota = $request->kota;
         $listing->wilayah = $request->wilayah;
         $listing->alamat_detail = $request->alamat_detail;
         $listing->harga = $request->harga;
+        $listing->persenan = $request->persenan;
         $listing->desc = $request->desc;
         $listing->kamar = $request->kamar;
         $listing->kamar_mandi = $request->kamar_mandi;
@@ -47,7 +57,10 @@ class ListingController extends Controller
         $listing->TipePenjualan = $request->TipePenjualan;
         $listing->statusTanah = $request->statusTanah;
         $listing->Approval = "Pending";
-        $listing->picUrl = "none";
+        $listing->picUrl = 'none';
+        $listing->save();
+
+        $listing->picUrl = 'listing_pic\\'.$listing->id;
         $listing->save();
 
         $listing_facilities = new ListingFacilities;
@@ -63,6 +76,10 @@ class ListingController extends Controller
         $listing_facilities->perabotan = $request->perabotan;
         $listing_facilities->jenis_lantai = $request->jenis_lantai;
         $listing_facilities->save();
+
+        foreach($request->file('gambar') as $gambar){
+            $gambar->move($listing->picUrl,$gambar->getClientOriginalName());
+        }
 
         if($listing->save() && $listing_facilities->save()){
             return redirect('/listing')->with(['message' => 'Request berhasil ditambahkan!', 'alert-class' => 'alert-success']);

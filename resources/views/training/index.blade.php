@@ -1,6 +1,6 @@
 @extends('layouts.header')
-@section('title', 'Listing Saya')
-@section('navbar-title', 'Listing')
+@section('title', 'Jadwal Training')
+@section('navbar-title', 'Training')
 @section('panel')
     <div class="panel-header panel-header-sm">
     </div>
@@ -12,10 +12,8 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="card-title"> Listing Saya</h4>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-primary float-right" href="/listing/new">Request Baru</a>
+                        <h4 class="card-title"> Jadwal Training</h4>
+                        <h4 class="card-category"> Training yang diadakan oleh PT.BAF</h4>
                     </div>
                 </div>
                     @if(Session::has('message'))
@@ -30,35 +28,35 @@
                     <table class="table">
                         <thead class=" text-primary">
                             <th>
-                                ID Properti
-                            </th>
-                            <th style="width:45%">
-                                Judul
+                                Judul Training
                             </th>
                             <th>
-                                Tanggal Request
+                                Level
                             </th>
                             <th>
-                                Status
+                                Tanggal Pelaksanaan
+                            </th>
+                            <th>
+                                Lokasi
                             </th>
                             <th class="text-right">
                                 
                             </th>
                         </thead>
                         <tbody>
-                        @foreach($listings as $listing)
+                        @foreach($trainings as $training)
                             <tr>
                                 <td>
-                                    {{$listing->id}}
+                                    {{$training->judul}}
                                 </td>
                                 <td>
-                                    {{$listing->nama_listing}}
+                                    {{$training->level}}
                                 </td>
                                 <td>
-                                    {{$listing->created_at->format('j F Y')}}
+                                    {{date('d M Y', strtotime($training->tanggal))}}, <strong>{{date('H:i', strtotime($training->waktu))}}</strong>
                                 </td>
                                 <td>
-                                    {{$listing->Approval}}
+                                    {{$training->lokasi}}
                                 </td>
                                 <td class="text-right">
                                 <div class="dropdown">
@@ -66,11 +64,13 @@
                                         <i class="now-ui-icons loader_gear"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
-                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != 'Pending' ? 'href=https://asriloka.com/properti/'.$listing->id : ''}}>Kunjungi Laman</a>
-                                        <a class="dropdown-item" href="#">Request Update</a>
-                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval == 'Approved' ? 'href="/listing/upload/$listing->id' : ''}}'">Upload Bukti Transaksi</a>
-                                        <a class="dropdown-item text-danger" href="#">Lapor</a>
+                                        <a class="dropdown-item" href="/training/detail/{{$training->id}}">Lihat Detail</a>
+                                        <button form="daftar{{$training->id}}" class="dropdown-item" type="submit">Daftar</button>
+                                        <form id="daftar{{$training->id}}" action="/training/daftar" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="token" value="{{Auth::user()->token}}">
+                                        <input type="hidden" name="id" value="{{$training->id}}">
+                                    </form>
                                     </div>
                                 </div>
                                 </td>

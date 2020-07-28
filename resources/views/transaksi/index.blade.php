@@ -12,31 +12,38 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="card-title"> Listing Saya</h4>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-primary float-right" href="/listing/new">Request Baru</a>
+                        <h4 class="card-title">Transaksi Anda</h4>
                     </div>
                 </div>
-                    @if(Session::has('message'))
+                @if(Session::has('message'))
                     <div class="alert {{Session::GET('alert-class')}} alert-block">
                         <button type="button" class="close" data-dismiss="alert">×</button> 
                         <strong>{{ Session::get('message') }}</strong>
                     </div>
-                    @endif
+                @endif
+                  
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
                             <th>
-                                ID Properti
-                            </th>
-                            <th style="width:45%">
-                                Judul
+                                No. Transaksi
                             </th>
                             <th>
-                                Tanggal Request
+                                Nama Pembeli
+                            </th>
+                            <th>
+                                ID Properti
+                            </th>
+                            <th>
+                                ID Sales
+                            </th>
+                            <th>
+                                Tanggal Closing
+                            </th>
+                            <th>
+                                Harga Terjual
                             </th>
                             <th>
                                 Status
@@ -46,19 +53,28 @@
                             </th>
                         </thead>
                         <tbody>
-                        @foreach($listings as $listing)
+                        @foreach($transaksis as $transaksi)
                             <tr>
                                 <td>
-                                    {{$listing->id}}
+                                    {{$transaksi->no_transaksi}}
                                 </td>
                                 <td>
-                                    {{$listing->nama_listing}}
+                                    {{$transaksi->pembeli}}
                                 </td>
                                 <td>
-                                    {{$listing->created_at->format('j F Y')}}
+                                    {{$transaksi->listing_id}}
                                 </td>
                                 <td>
-                                    {{$listing->Approval}}
+                                    {{$transaksi->sales_id}}
+                                </td>
+                                <td>
+                                    {{$transaksi->created_at->format('j F Y')}}
+                                </td>
+                                <td>
+                                    Rp. {{number_format($transaksi->harga_jual, 0)}}
+                                </td>
+                                <td>
+                                    {{$transaksi->status}}
                                 </td>
                                 <td class="text-right">
                                 <div class="dropdown">
@@ -66,11 +82,9 @@
                                         <i class="now-ui-icons loader_gear"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
-                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != 'Pending' ? 'href=https://asriloka.com/properti/'.$listing->id : ''}}>Kunjungi Laman</a>
-                                        <a class="dropdown-item" href="#">Request Update</a>
-                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval == 'Approved' ? 'href="/listing/upload/$listing->id' : ''}}'">Upload Bukti Transaksi</a>
-                                        <a class="dropdown-item text-danger" href="#">Lapor</a>
+                                        <a class="dropdown-item">Kunjungi Laman Properti</a>
+                                        <a class="dropdown-item" href="/transaction/akad/{{$transaksi->id}}">Upload Bukti Akad</a>
+                                        <a class="dropdown-item text-danger" href="#">Batalkan Transaksi</a>
                                     </div>
                                 </div>
                                 </td>

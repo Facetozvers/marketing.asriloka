@@ -1,5 +1,5 @@
 @extends('layouts.header')
-@section('title', 'Listing Saya')
+@section('title', 'Cari Listing')
 @section('navbar-title', 'Listing')
 @section('panel')
     <div class="panel-header panel-header-sm">
@@ -12,34 +12,27 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h4 class="card-title"> Listing Saya</h4>
-                    </div>
-                    <div class="col-6">
-                        <a class="btn btn-primary float-right" href="/listing/new">Request Baru</a>
+                        <h4 class="card-title">Cari Listing</h4>
                     </div>
                 </div>
-                    @if(Session::has('message'))
-                    <div class="alert {{Session::GET('alert-class')}} alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button> 
-                        <strong>{{ Session::get('message') }}</strong>
+                <form>
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Cari ID Properti...">
+                        <span class="input-group-addon">
+                            <i class="now-ui-icons ui-1_zoom-bold"></i>
+                        </span>
                     </div>
-                    @endif
+                </form>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th>
+                            <th style="width:25%">
                                 ID Properti
                             </th>
                             <th style="width:45%">
                                 Judul
-                            </th>
-                            <th>
-                                Tanggal Request
-                            </th>
-                            <th>
-                                Status
                             </th>
                             <th class="text-right">
                                 
@@ -54,12 +47,6 @@
                                 <td>
                                     {{$listing->nama_listing}}
                                 </td>
-                                <td>
-                                    {{$listing->created_at->format('j F Y')}}
-                                </td>
-                                <td>
-                                    {{$listing->Approval}}
-                                </td>
                                 <td class="text-right">
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
@@ -68,9 +55,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != 'Pending' ? 'href=https://asriloka.com/properti/'.$listing->id : ''}}>Kunjungi Laman</a>
-                                        <a class="dropdown-item" href="#">Request Update</a>
-                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval == 'Approved' ? 'href="/listing/upload/$listing->id' : ''}}'">Upload Bukti Transaksi</a>
-                                        <a class="dropdown-item text-danger" href="#">Lapor</a>
+                                        <a class="dropdown-item text-success" href="/listing/upload/{{$listing->id}}">Upload Bukti Transaksi</a>
                                     </div>
                                 </div>
                                 </td>
