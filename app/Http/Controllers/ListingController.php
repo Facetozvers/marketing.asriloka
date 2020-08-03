@@ -78,8 +78,8 @@ class ListingController extends Controller
         $listing_facilities->jenis_lantai = $request->jenis_lantai;
         $listing_facilities->save();
 
-        foreach($request->file('gambar') as $gambar){
-            $gambar->move($listing->picUrl,$gambar->getClientOriginalName());
+        foreach($request->file('gambar') as $key=>$gambar){
+            $gambar->move($listing->picUrl,$key.'.'.$gambar->getClientOriginalExtension());
         }
 
         if($listing->save() && $listing_facilities->save()){

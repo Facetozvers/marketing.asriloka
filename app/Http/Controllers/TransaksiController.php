@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     public function index(){
-        $transaksis = TransaksiProperti::where('sales_id', Auth::user()->id)->orWhere('lister_id', Auth::user()->id)->get();
+        $transaksis = TransaksiProperti::where('sales_id', Auth::user()->no_kepegawaian)->orWhere('lister_id', Auth::user()->no_kepegawaian)->get();
         return view('transaksi.index', ['transaksis' => $transaksis]);
     }
 
@@ -29,7 +29,7 @@ class TransaksiController extends Controller
     }
 
     public function uploadClosing(Request $request){
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
         $listing = Listing::where('id', $request->listing_id)->first();
         $lister = $listing->lister_id;
      
@@ -41,7 +41,7 @@ class TransaksiController extends Controller
             
             $transaksi = new TransaksiProperti;
             $transaksi->listing_id = $request->listing_id;
-            $transaksi->sales_id = Auth::user()->id;
+            $transaksi->sales_id = Auth::user()->no_kepegawaian;
             $transaksi->status = "Closing";
             $transaksi->lister_id = $lister;
             $transaksi->urlClosing = $namaFile;
@@ -54,7 +54,7 @@ class TransaksiController extends Controller
             $closing->move($transaksi->pathFile,$transaksi->urlClosing);
 
             if($transaksi->save()){
-                return redirect('/transaction')->with(['message' => 'Upload Bukti Transaksi Berhasil!', 'alert-class' => 'alert-danger']);
+                return redirect('/transaction')->with(['message' => 'Upload Bukti Transaksi Berhasil!', 'alert-class' => 'alert-success']);
             }
 
             else{
@@ -79,12 +79,12 @@ class TransaksiController extends Controller
     }
 
     public function uploadAkad(Request $request){
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
      
-        if($user->id != $request->lister_id){
+        if($user->no_kepegawaian != $request->lister_id){
             return redirect('/transaction')->with(['message' => 'Hanya Pelisting yang dapat mengupload bukti akad!', 'alert-class' => 'alert-danger']);
         }
-        else if($request->token == $user->token && $user->role == 'marketing' && $user->id == $request->lister_id){ //hanya boleh lister yang upload bukti akad
+        else if($request->token == $user->token && $user->role == 'marketing' && $user->no_kepegawaian == $request->lister_id){ //hanya boleh lister yang upload bukti akad
 
             $akad = $request->file('bukti_transaksi');
             $buktiBAF = $request->file('bukti_BAF');
