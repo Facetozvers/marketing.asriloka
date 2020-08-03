@@ -14,7 +14,7 @@ class TransaksiProperti extends Model
             $model->no_transaksi = 'TRSC'.$model->listing_id.str_pad($model->number,2,'0',STR_PAD_LEFT);
 
             //menyimpan upload url
-            $tujuan_upload = "transaksi\\".$model->no_transaksi;
+            $tujuan_upload = "transaksi/".$model->no_transaksi;
             $model->pathFile = $tujuan_upload;
         });
     }

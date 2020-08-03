@@ -26,7 +26,7 @@
                             <div class="carousel-inner">
                             @foreach($images as $image)
                                 <div class="carousel-item {{$loop->iteration == '1' ? 'active' : ''}}" style="height:500px">
-                                <img class="d-block w-100" src="https://marketing.asriloka.com/public/{{$listing->picUrl}}/{{$image->getFilename()}}" style="height:500px;object-fit:contain">
+                                <img class="d-block w-100" src="https://marketing.asriloka.com/public/{{$listings->picUrl}}/{{$image->getFilename()}}" style="height:500px;object-fit:contain">
                                 </div>
                             @endforeach
                             </div>

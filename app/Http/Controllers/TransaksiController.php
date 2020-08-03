@@ -90,7 +90,7 @@ class TransaksiController extends Controller
             $buktiBAF = $request->file('bukti_BAF');
             
             $transaksi = TransaksiProperti::where('id', $request->no_transaksi)->first();
-            $tujuan_upload = "transaksi\\".$transaksi->no_transaksi;
+            $tujuan_upload = "transaksi/".$transaksi->no_transaksi;
             $namaFileAkad = $transaksi->no_transaksi.'_akad.'.$akad->getClientOriginalExtension();
             $namaFileBAF = $transaksi->no_transaksi.'_buktiBAF.'.$buktiBAF->getClientOriginalExtension();
 
