@@ -63,15 +63,19 @@
             <div class="row">
             @foreach($listings as $listing)
                 <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
+                <a href="" style="color:black">
+                    <div class="card" style="border:solid 1px #d3d3d3; height:95%">
                         <img class="card-img-top" src="https://icon-library.com/images/photo-placeholder-icon/photo-placeholder-icon-7.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{$listing->nama_listing}}</h5>
                             <p class="card-text">{{$listing->kota}}, {{$listing->wilayah}}</p>
-                            <p class="card-category">{{$listing->id}}</p>
-                            <a href="#" class="btn btn-primary">Kunjungi</a>
+                            <p class="card-category">{{$listing->id_properti}}</p>
+                            
+                        </div>
+                        <div class="card-footer">
                         </div>
                     </div>
+                </a>
                 </div>
             @endforeach
             </div>

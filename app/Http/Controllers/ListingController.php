@@ -31,7 +31,8 @@ class ListingController extends Controller
     public function detail($id){
         $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         $lister = DB::table('users')->where('no_kepegawaian','=',$data->lister_id)->select('users.name','users.phone_number','users.no_kepegawaian','users.display_email')->first();
-        return view('listing.detail', ['listings' => $data, 'lister' => $lister]);
+        $images = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/listing_pic/'.$data->listing_id);
+        return view('listing.detail', ['listings' => $data, 'lister' => $lister, 'images' => $images]);
     }
 
     public function new(){
@@ -60,7 +61,7 @@ class ListingController extends Controller
         $listing->picUrl = 'none';
         $listing->save();
 
-        $listing->picUrl = 'listing_pic\\'.$listing->id;
+        $listing->picUrl = 'listing_pic/'.$listing->id;
         $listing->save();
 
         $listing_facilities = new ListingFacilities;

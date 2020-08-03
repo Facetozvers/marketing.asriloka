@@ -49,7 +49,7 @@
                         @foreach($listings as $listing)
                             <tr>
                                 <td>
-                                    {{$listing->id}}
+                                    {{$listing->id_properti}}
                                 </td>
                                 <td>
                                     {{$listing->nama_listing}}

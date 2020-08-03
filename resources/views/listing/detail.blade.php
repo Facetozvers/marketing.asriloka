@@ -12,9 +12,35 @@
             <div class="card-header">
                 <p class="card-category"><a href="/listing"><i class="now-ui-icons arrows-1_minimal-left"></i> Kembali</p></a>
                 <h3 class="card-title">Detail Listing</h3>
-                <p class="card-category"> ID listing : {{$listings->id}}</p>
+                <p class="card-category"> ID listing : {{$listings->id_properti}}</p>
             </div>
             <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                            @foreach($images as $image)
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{$loop->iteration}}" class="{{$loop->iteration == '1' ? 'active' : ''}}"></li>
+                            @endforeach
+                            </ol>
+                            <div class="carousel-inner">
+                            @foreach($images as $image)
+                                <div class="carousel-item {{$loop->iteration == '1' ? 'active' : ''}}" style="height:500px">
+                                <img class="d-block w-100" src="https://marketing.asriloka.com/public/{{$listing->picUrl}}/{{$image->getFilename()}}" style="height:500px;object-fit:contain">
+                                </div>
+                            @endforeach
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <h5>Informasi Properti</h5>
                 <div class="row">
                     <div class="col-6">
