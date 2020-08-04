@@ -70,8 +70,8 @@
                         </a>
                     </li>
                     
-                    <li class="active-pro">
-                        <a href="/examples/upgrade.html">
+                    <li>
+                        <a href="/profile">
                             <i class="now-ui-icons users_single-02"></i>
                             <p>{{Auth::user()->name}}</p>
                         </a>
@@ -125,6 +125,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/profile">Profile</a>
+                                    <a class="dropdown-item" href="/ganti_password">Ganti Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

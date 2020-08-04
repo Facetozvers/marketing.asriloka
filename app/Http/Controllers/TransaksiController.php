@@ -36,11 +36,11 @@ class TransaksiController extends Controller
         if($request->token == $user->token && $user->role == 'marketing'){
 
             $closing = $request->file('bukti_transaksi');
-            $namaFile = $request->listing_id.'_closing.'.$closing->getClientOriginalExtension();
+            $namaFile = $listing->id_properti.'_closing.'.$closing->getClientOriginalExtension();
             
             
             $transaksi = new TransaksiProperti;
-            $transaksi->listing_id = $request->listing_id;
+            $transaksi->listing_id = $listing->id_properti;
             $transaksi->sales_id = Auth::user()->no_kepegawaian;
             $transaksi->status = "Closing";
             $transaksi->lister_id = $lister;
