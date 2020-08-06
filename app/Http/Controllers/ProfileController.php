@@ -16,7 +16,7 @@ class ProfileController extends Controller
     
     public function index(){
         $user = User::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
-        $listing = Listing::where('lister_id',$user->no_kepegawaian)->where('Approval','Approved')->get();
+        $listing = Listing::where('lister_id',$agen->no_kepegawaian)->where('Approval','Approved')->get();
         return view('profile.profile', ['user' => $user, 'listings' => $listing]);
     }
 }
