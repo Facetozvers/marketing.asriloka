@@ -16,13 +16,13 @@ class ProfileController extends Controller
     
     public function index(){
         $user = User::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
-        $listing = Listing::where('lister_id',$user->no_kepegawaian)->where('Approval','Approved')->get();
+        $listings = Listing::where('lister_id',$user->no_kepegawaian)->where('Approval','Approved')->get();
 
         foreach ($listings as $listing){
             $images = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/listing_pic/'.$listing->id);
             $listing->coverImg = $images[0]->getFileName();
         }
-        
-        return view('profile.profile', ['user' => $user, 'listings' => $listing]);
+
+        return view('profile.profile', ['user' => $user, 'listings' => $listings]);
     }
 }
