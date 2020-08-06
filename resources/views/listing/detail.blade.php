@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-6">
                         <p>Judul : <br>
-                        <a target="_blank" href="https://asriloka.com/properti/{{$listings->id}}">{{$listings->nama_listing}}</a>
+                        <a target="_blank" href="https://asriloka.com/properti/{{$listings->id_properti}}">{{$listings->nama_listing}}</a>
                         </p>
                         <hr>
                         <p>Sertifikat : <br>

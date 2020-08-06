@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Listing;
+use App\TransaksiProperti;
+use App\Training;
 
 class HomeController extends Controller
 {
@@ -26,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $listings = Listing::where('lister_id', Auth::user()->no_kepegawaian)->orderBy('created_at', 'DESC')->limit(5)->get();
+        $transactions = TransaksiProperti::where('sales_id', Auth::user()->no_kepegawaian)->orWhere('lister_id', Auth::user()->no_kepegawaian)->limit(4)->get();
+        $trainings = Training::where('status', 'Open')->where('tanggal','>=', date('Y-m-d'))->get();
+        return view('dashboard', ['listings' => $listings, 'transactions' => $transactions, 'trainings' => $trainings]);
     }
 
     public function changePasswordPage(){

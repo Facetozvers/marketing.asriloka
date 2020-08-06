@@ -13,7 +13,7 @@ class DownlineController extends Controller
     public function index(){
         //cari upline
         $upline = Upline::where('user_id', Auth::user()->no_kepegawaian)->join('users','uplines.upline_id','=','users.no_kepegawaian')->select('uplines.*', 'users.name','users.phone_number','users.email','users.referral_code', 'users.no_kepegawaian')->first();
-        $downlines = Upline::where('upline_id', Auth::user()->no_kepegawaian)->join('users','uplines.user_id','=','users.no_kepegawaian')->select('uplines.*', 'users.name','users.phone_number','users.email','users.level','users.referral_code')->get();
+        $downlines = Upline::where('upline_id', Auth::user()->no_kepegawaian)->join('users','uplines.user_id','=','users.no_kepegawaian')->select('uplines.*', 'users.name','users.phone_number','users.email','users.level','users.referral_code', 'users.no_kepegawaian')->get();
 
         return view('upline', ['upline' => $upline, 'downlines' => $downlines]);
     }
