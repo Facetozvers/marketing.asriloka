@@ -136,7 +136,7 @@
                           <i class="now-ui-icons loader_gear"></i>
                       </button>
                       <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
+                          <a class="dropdown-item" href="/training/detail/{{$training->id}}">Lihat Detail</a>
                       </div>
                   </div>
                 </td>
