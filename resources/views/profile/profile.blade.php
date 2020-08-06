@@ -65,7 +65,7 @@
                 <div class="col-md-4">
                 <a href="" style="color:black">
                     <div class="card" style="border:solid 1px #d3d3d3; height:95%">
-                        <img class="card-img-top" src="https://icon-library.com/images/photo-placeholder-icon/photo-placeholder-icon-7.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="https://marketing.asriloka.com/public/listing_pic/{{$listing->id}}/{{$listing->coverImg}}" alt="Gambar Properti">
                         <div class="card-body">
                             <h5 class="card-title">{{$listing->nama_listing}}</h5>
                             <p class="card-text">{{$listing->kota}}, {{$listing->wilayah}}</p>
