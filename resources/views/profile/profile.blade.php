@@ -63,7 +63,7 @@
             <div class="row">
             @foreach($listings as $listing)
                 <div class="col-md-4">
-                <a href="" style="color:black">
+                <a href="https://www.asriloka.com/properti/{{$listing->id_properti}}" style="color:black">
                     <div class="card" style="border:solid 1px #d3d3d3; height:95%">
                         <img class="card-img-top" src="https://marketing.asriloka.com/public/listing_pic/{{$listing->id}}/{{$listing->coverImg}}" alt="Gambar Properti">
                         <div class="card-body">
