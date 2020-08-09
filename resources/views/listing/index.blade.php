@@ -68,7 +68,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != "Pending" ? "href=https://asriloka.com/properti/$listing->id_properti" : ""}}>Kunjungi Laman</a>
-                                        <a class="dropdown-item" href="#">Request Update</a>
+                                        <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != "Pending" ? "href=https://asriloka.com/properti/$listing->id_properti.'?token='.Auth::user()->token" : ""}}>Kunjungi Laman Sebagai Marketing</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval == "Approved" ? "href=/listing/upload/$listing->id" : ""}}>Upload Bukti Transaksi</a>
                                         <a class="dropdown-item text-danger" href="#">Lapor</a>
                                     </div>
