@@ -14,7 +14,8 @@
     <!-- CSS Files -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
-    
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -145,6 +146,7 @@
             <div class="content">
                 @yield('content')
             </div>
+            
         </div>
     </div>
 </body>
@@ -160,13 +162,13 @@
 <!--  Notifications Plugin    -->
 <script src="/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-
+<script src="/assets/js/now-ui-dashboard.js?v=1.0.1"></script>
+<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
 <script src="/assets/demo/demo.js"></script>
 <script>
     $(document).ready(function() {
-        $("#btn1").click(function(){
-    $("#gambar").append('<div class="col-3"><div class="form-group" id="pic"><label>Gambar</label><input type="file" name="gambar[]" class="form-control-file"></div></div>');
-  });
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
     });
 </script>
 

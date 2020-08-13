@@ -16,7 +16,8 @@
             <div class="card-body">
                 <div class="alert alert-info" data-notify="container">
                     <span data-notify="message">MOHON DIPERHATIKAN!! <br>
-                    Halaman ini merupakan halaman untuk melakukan upload bukti transaksi AKAD<br>
+                    Halaman ini merupakan halaman untuk melakukan upload bukti transaksi AKAD yang dilakukan oleh PELISTING<br>
+                    Validasi pencairan maksimal 14 hari kerja setelah dana masuk ke rekening PT.BAF dari pemilik aset.<br>
                 </div>
                 
                 <h5>Upload Bukti Transaksi :</h5>

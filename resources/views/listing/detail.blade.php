@@ -61,7 +61,7 @@
                         </p>
                         <hr>
                         <p>Fee untuk PT.BAF <br>
-                        {{$listings->persenan}}
+                        {{$listings->persenan}}%
                         </p>
                         <hr>
                         <p>Kamar Tidur : <br>

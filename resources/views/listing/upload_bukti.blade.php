@@ -16,11 +16,7 @@
             <div class="card-body">
                 <div class="alert alert-info" data-notify="container">
                     <span data-notify="message">MOHON DIPERHATIKAN!! <br>
-                    Halaman ini merupakan halaman untuk melakukan upload bukti transaksi CLOSING<br>
-                    Jika anda merupakan LISTER dari properti ini dan melakukan kerjasama dengan Marketing lain dalam kegiatan penjualan properti ini, maka anda TIDAK PERLU melakukan upload bukti transaksi CLOSING<br>
-                    Jika anda merupakan LISTER dari properti ini dan melakukan tidak melakukan kerjasama dengan Marketing lain dalam kegiatan penjualan properti ini, silahkan upload bukti transaksi CLOSING dibawah ini<br>
-                    Jika anda merupakan SALES dari properti ini, maka silahkan upload bukti transaksi CLOSING dibawah ini
-                    <br>
+                    Halaman ini merupakan halaman untuk melakukan upload bukti transaksi CLOSING yang dilakukan PESELLING<br>
                     <br>
                     Ketidaksesuaian dengan instruksi diatas akan menyebabkan kesalahan pada pembagian hasil nantinya, maka diharapkan untuk melakukan koordinasi dengan pihak - pihak yang terkait sebelum melakukan upload
                     </span>

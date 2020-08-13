@@ -17,6 +17,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <img src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
+                        <a class="btn btn-primary" href="/profile/upload_pic">Ubah Foto Profile</a>
                     </div>
                     <div class="col-md-8">
                         <div class="row">
