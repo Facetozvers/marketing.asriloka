@@ -35,6 +35,12 @@ class ListingController extends Controller
         return view('listing.detail', ['listings' => $data, 'lister' => $lister, 'images' => $images]);
     }
 
+    public function editPage($id){
+        $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
+        
+        return view('listing.edit', ['listings' => $data]);
+    }
+
     public function new(){
         return view('listing.new');
     }
