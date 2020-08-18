@@ -64,10 +64,16 @@
                             <p>Training</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{(request()->is('koneksi*')) ? 'active' : '' }}">
                         <a href="/koneksi">
                             <i class="now-ui-icons location_map-big"></i>
                             <p>Koneksi</p>
+                        </a>
+                    </li>
+                    <li class="{{(request()->is('knowledgebase*')) ? 'active' : '' }}">
+                        <a href="/knowledgebase">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>Knowledge Base</p>
                         </a>
                     </li>
                     
@@ -163,14 +169,12 @@
 <script src="/assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/assets/js/now-ui-dashboard.js?v=1.0.1"></script>
-<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="/assets/demo/demo.js"></script>
 <script>
     $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+        $("#btn1").click(function(){
+    $("#gambar").append('<div class="col-3"><div class="form-group" id="pic"><label>Gambar</label><input type="file" name="gambar[]" class="form-control-file"></div></div>');
+  });
     });
 </script>
-
 </html>
 
