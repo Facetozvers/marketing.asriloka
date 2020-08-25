@@ -3222,7 +3222,10 @@ Created using IcoMoon - icomoon.io
       display: block;
       margin-left: auto;
       margin-right: auto;
-      max-height: 240px;
+      object-fit:cover;
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
     }
 
 @media screen and (max-width: 991px) {

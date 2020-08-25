@@ -75,7 +75,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                 @isset($profilePic)
-                                    <img class="profile-picture" src="{{$picUrl}}/{{$profilePic}}" alt="">
+                                    <img class="profile-picture" src="/{{$picUrl}}/{{$profilePic}}" alt="">
                                 @else
                                     <img class="profile-picture" src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
                                 @endisset

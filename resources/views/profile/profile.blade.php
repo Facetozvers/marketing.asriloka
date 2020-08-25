@@ -22,7 +22,7 @@
                     </div>
 				@endif
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @isset($profilePic)
                             <img class="profile-picture" src="profile_pic/{{Auth::user()->no_kepegawaian}}/{{$profilePic}}" alt="">
                         @else
@@ -35,7 +35,7 @@
                             <input type="hidden" value="{{Auth::user()->id}}" name="id">
                         </form>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="row">
                         <div class="col-md-12">
                             <div class="author">
