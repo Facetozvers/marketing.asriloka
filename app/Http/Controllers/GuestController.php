@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Listing;
+use App\UserProfile;
 
 class GuestController extends Controller
 {
     public function profile($id){
         $user = DB::table('users')->where('no_kepegawaian','=', $id)->select('name','phone_number','referral_code','email')->first();
+        $user_profile = DB::table('users')->where('no_kepegawaian','=', $id)->first();
         $listings = Listing::where('lister_id',$id)->where('Approval','Approved')->get();
 
         foreach ($listings as $listing){
@@ -18,6 +20,16 @@ class GuestController extends Controller
             $listing->coverImg = $images[0]->getFileName();
         }
         
-        return view('profile.profile_guest', ['user' => $user, 'listings' => $listings]);
+        if(\File::exists('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$id)){
+            $user_image = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$id);
+            $profilePic = $user_image[0]->getFileName();       
+            $picUrl = $user_profile->pic_url;     
+            return view('profile.profile', ['user' => $user, 'listings' => $listings, 'profilePic' => $profilePic, 'picUrl' => $picUrl]);
+        }
+
+        else{
+            return view('profile.profile', ['user' => $user, 'listings' => $listings]);
+        }
+        
     }
 }
