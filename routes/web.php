@@ -19,13 +19,19 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/ganti_password', 'HomeController@changePasswordPage');
 Route::post('/ganti_password', 'HomeController@changePassword')->name('changePassword');
 Route::get('/dashboard', 'HomeController@index');
-Route::get('/profile', 'ProfileController@index');
 Route::get('/u/{id}', 'GuestController@profile');
+Route::get('/knowledgebase', 'HomeController@knowledgebase');
+
+Route::get('/profile', 'ProfileController@index');
+Route::post('/profile/upload', 'ProfileController@uploadPicPage');
+Route::post('/profile/upload_proses', 'ProfileController@uploadPic');
+Route::post('/profile/delete_pic', 'ProfileController@deletePic');
 
 
 Route::get('/listing', 'ListingController@listingsaya');
 Route::get('/listing/all', 'ListingController@allListing');
 Route::get('/listing/detail/{id}', 'ListingController@detail');
+Route::get('/listing/edit/{id}', 'ListingController@editPage');
 Route::get('/listing/new', 'ListingController@new');
 Route::post('/listing/new', 'ListingController@request');
 

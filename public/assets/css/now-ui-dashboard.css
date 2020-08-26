@@ -3218,6 +3218,22 @@ Created using IcoMoon - icomoon.io
   .fixed-plugin .bootstrap-switch {
     margin: 0; }
 
+  .profile-picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit:cover;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+  }
+
+  .card-img-top{
+    object-fit:cover;
+    height: 240px;
+  }
+
+
 @media screen and (max-width: 991px) {
   .profile-photo .profile-photo-small {
     margin-left: -2px; }

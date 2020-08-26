@@ -23,7 +23,7 @@
                 </div>
                 
                 <h5>Upload Bukti Transaksi :</h5>
-                <p>ID Properti : {{$listing->id}}</p>
+                <p>ID Properti : {{$listing->id_properti}}</p>
                     <form action="/listing/upload" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">

@@ -74,7 +74,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
+                                @isset($profilePic)
+                                    <img class="profile-picture" src="/{{$picUrl}}/{{$profilePic}}" alt="">
+                                @else
+                                    <img class="profile-picture" src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
+                                @endisset
                                 </div>
                                 <div class="col-md-8">
                                     <div class="row">

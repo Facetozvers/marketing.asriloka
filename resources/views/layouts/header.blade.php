@@ -64,10 +64,16 @@
                             <p>Training</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{(request()->is('koneksi*')) ? 'active' : '' }}">
                         <a href="/koneksi">
                             <i class="now-ui-icons location_map-big"></i>
                             <p>Koneksi</p>
+                        </a>
+                    </li>
+                    <li class="{{(request()->is('knowledgebase*')) ? 'active' : '' }}">
+                        <a href="/knowledgebase">
+                            <i class="now-ui-icons location_map-big"></i>
+                            <p>Knowledge Base</p>
                         </a>
                     </li>
                     

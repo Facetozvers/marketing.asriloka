@@ -104,7 +104,7 @@ class TransaksiController extends Controller
             $akad->move($tujuan_upload,$namaFileAkad);
             $buktiBAF->move($tujuan_upload,$namaFileBAF);
 
-            return redirect('/upload/success');
+            return redirect('/transaction')->with(['message' => 'Upload Akad Berhasil!', 'alert-class' => 'alert-success']);
         }
 
         else{

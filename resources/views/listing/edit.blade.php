@@ -11,8 +11,8 @@
         <div class="card">
             <div class="card-header">
                 <p class="card-category"><a href="/listing"><i class="now-ui-icons arrows-1_minimal-left"></i> Kembali</p></a>
-                <h3 class="card-title">Request Listing Baru</h3>
-                <p class="card-category">*lengkapi data - data berikut</p>
+                <h3 class="card-title">Edit Listing</h3>
+                <p class="card-category">ID : {{$data->id_properti}}</p>
             </div>
             <div class="card-body">
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -21,7 +21,7 @@
                         <div class="col-8">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input type="text" class="form-control" name="judul" required>
+                                <input type="text" value="{{$data->nama_listing}}" class="form-control" name="judul" required>
                             </div>
                         </div>
                         <div class="col-4">
@@ -61,13 +61,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input class="form-control" type="number" name="harga" required>
+                                <input class="form-control" value="{{$data->harga}}" type="number" name="harga" required>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label>Fee untuk PT.BAF (persen)</label>
-                                <input class="form-control" type="number" step=".001" name="persenan" required>
+                                <input class="form-control" value="{{$data->persenan}}" type="number" name="persenan" required>
                             </div>
                         </div>
                     </div>
@@ -76,19 +76,19 @@
                         <div class="col-6">
                         <div class="form-group">
                             <label>Kota</label>
-                            <input class="form-control" type="text" name="kota" placeholder="" required>
+                            <input class="form-control" value="{{$data->kota}}" type="text" name="kota" placeholder="" required>
                         </div>
                         </div>                
                         <div class="col-6">
                         <div class="form-group">
                             <label>Kecamatan</label>
-                            <input class="form-control" type="text" name="wilayah" placeholder="" required>
+                            <input class="form-control" value="{{$data->wilayah}}" type="text" name="wilayah" placeholder="" required>
                         </div>
                         </div>  
                         <div class="col-12 pt-2">
                             <div class="form-group">
                                 <label>Alamat Lengkap</label>
-                                <input type="text" class="form-control" name="alamat_detail" required>
+                                <input type="text" class="form-control" value="{{$data->alamat_detail}}" name="alamat_detail" required>
                             </div>
                         </div>              
                     </div>
@@ -97,25 +97,25 @@
                         <div class="col-md-3">
                         <div class="form-group">
                             <label>Kamar Tidur</label>
-                            <input type="text" placeholder="Banyak kamar" name="kamar" class="form-control" required>
+                            <input type="text" value="{{$data->kamar}}" placeholder="Banyak kamar" name="kamar" class="form-control" required>
                         </div>
                         </div>                
                         <div class="col-md-3">
                         <div class="form-group">
                             <label>Kamar Mandi</label>
-                            <input type="text" placeholder="Banyak kamar" name="kamar_mandi" class="form-control" required>
+                            <input type="text" value="{{$data->kamar_mandi}}" placeholder="Banyak kamar" name="kamar_mandi" class="form-control" required>
                         </div>                
                         </div>
                         <div class="col-md-3">
                         <div class="form-group">
                             <label>Kapasitas Garasi (isi 0 jika tidak ada)</label>
-                            <input type="text" placeholder="Kapasitas Mobil didalam garasi" name="garasi" class="form-control" required>
+                            <input type="text" value="{{$data->garasi}}" placeholder="Kapasitas Mobil didalam garasi" name="garasi" class="form-control" required>
                         </div>                
                         </div>
                         <div class="col-md-3">
                         <div class="form-group">
                             <label>Luas Tanah (m<sup>2</sup>)</label>
-                            <input type="text" placeholder="Luas tanah" name="luas" class="form-control" required>
+                            <input type="text" value="{{$data->luas}}" placeholder="Luas tanah" name="luas" class="form-control" required>
                         </div>      
                         </div>         
                     </div>
@@ -132,7 +132,7 @@
                         <div class="col-md-3">
                         <div class="form-group">
                             <label>Daya Listrik (W)</label>
-                            <input type="text" class="form-control" name="daya_listrik" required>
+                            <input type="text" value="{{$data->daya_listrik}}" class="form-control" name="daya_listrik" required>
                         </div>           
                         </div>     
                         <div class="col-md-3">
@@ -197,7 +197,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Deskripsi Tambahan</label>
-                                <textarea style="border: solid 1px grey" class="form-control" name="desc" id="" cols="30" rows="20" required></textarea>
+                                <textarea style="border: solid 1px grey" value="{{$data->desc}}" class="form-control" name="desc" id="" cols="30" rows="20" required></textarea>
                             </div>
                         </div>
                     </div>

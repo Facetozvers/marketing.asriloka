@@ -14,12 +14,28 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
-                        <a class="btn btn-primary" href="/profile/upload_pic">Ubah Foto Profile</a>
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                        {{ $error }} <br/>
+                        @endforeach
                     </div>
-                    <div class="col-md-8">
+				@endif
+                <div class="row">
+                    <div class="col-md-3">
+                        @isset($profilePic)
+                            <img class="profile-picture" src="profile_pic/{{Auth::user()->no_kepegawaian}}/{{$profilePic}}" alt="">
+                        @else
+                            <img class="profile-picture" src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="">
+                        @endisset
+                        <button class="btn btn-primary" type="submit" form="upload_pic">Ubah Foto Profile</button>
+                        <form action="profile/upload" method="POST" id="upload_pic">
+                            @csrf
+                            <input type="hidden" value="{{Auth::user()->no_kepegawaian}}" name="no_kepegawaian">
+                            <input type="hidden" value="{{Auth::user()->id}}" name="id">
+                        </form>
+                    </div>
+                    <div class="col-md-9">
                         <div class="row">
                         <div class="col-md-12">
                             <div class="author">
