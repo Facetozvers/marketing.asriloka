@@ -10,6 +10,20 @@ use App\UserProfile;
 
 class GuestController extends Controller
 {
+    public function all_agent(){
+        $user = DB::table('users')->where('role','marketing')->select('id','no_kepegawaian','name','phone_number','display_email')->inRandomOrder()->get();
+        foreach($user as $u){
+            if(\File::exists('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$u->no_kepegawaian)){
+            $user_image = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$u->no_kepegawaian);
+            $u->image = $user_image[0]->getFileName();
+            }
+            else{
+                $u->image = NULL;
+            }
+        }
+
+        return view('profile.all_agent', ['user' => $user]);
+    }
     public function profile($id){
         $user = DB::table('users')->where('no_kepegawaian','=', $id)->select('name','phone_number','referral_code','email')->first();
         $user_profile = DB::table('user_profiles')->where('no_kepegawaian','=', $id)->first();
