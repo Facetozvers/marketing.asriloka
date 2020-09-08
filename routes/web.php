@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/ganti_password', 'HomeController@changePasswordPage');
 Route::post('/ganti_password', 'HomeController@changePassword')->name('changePassword');
 Route::get('/dashboard', 'HomeController@index');
+Route::get('/agen', 'GuestController@all_agent');
 Route::get('/u/{id}', 'GuestController@profile');
 Route::get('/knowledgebase', 'HomeController@knowledgebase');
 

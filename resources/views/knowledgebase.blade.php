@@ -116,7 +116,14 @@
                     2. Pelisting sudah Upload Bukti Akad berupa Foto Akad di Notaris<br>
                     3. Pelisting sudah Upload Bukti Transfer Fee dari Rekening Developer maupun pemilik asset Primary maupun Secondary ke Rekening PT. BAF (Pelisting maupun Peselling dilarang menerima dana pembayaran apapun baik itu Booking, DP, maupun segala dana yang berhubungan dengan transaksi antara pemilik asset / Developer dengan Konsumen / Buyer)<br>
                     4. Pencairan maksimal 14 hari kerja oleh Bagian Keuangan setelah dilakukan validasi atas dana fee yang masuk ke rekening PT. BAF berdasarkan bukti transfer yang di upload pelisting atas pembayaran fee dari Developer maupun pemilik aset<br>
-                    </p>
+                    <br>
+                    Regulasi Fee yang berlaku di PT. BAF Setelah dikurangi Pajak : <br>
+                    Selling Fee/Akad   50% <br>
+                    Listing Fee        5% <br>
+                    Upline 1 Fee       5% <br>
+                    Upline 2 Fee       5% <br>
+                    Reward Target      5% <br>
+                </p>
                 
             </div>
         </div>

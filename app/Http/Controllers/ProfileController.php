@@ -65,13 +65,13 @@ class ProfileController extends Controller
         $user_profile = UserProfile::where('no_kepegawaian',$request->no_kepegawaian)->first();
         if($user_profile->pic_url == NULL){
             $user_profile->pic_url = 'profile_pic/'.$request->no_kepegawaian;
-            $request->file('pic')->move($user_profile->pic_url,'profile.'.$request->file('pic')->getClientOriginalExtension());
+            $request->file('pic')->move($user_profile->pic_url,time().'_profile.'.$request->file('pic')->getClientOriginalExtension());
             $user_profile->save();
         }
 
         else{
             File::deleteDirectory($user_profile->pic_url);
-            $request->file('pic')->move($user_profile->pic_url,'profile.'.$request->file('pic')->getClientOriginalExtension());
+            $request->file('pic')->move($user_profile->pic_url,time().'_profile.'.$request->file('pic')->getClientOriginalExtension());
         }
 
         return redirect('/profile');

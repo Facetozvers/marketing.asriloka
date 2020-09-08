@@ -6,20 +6,20 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>@yield('title')</title>
+    <title>Agen Marketing PT.BAF</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- CSS Files -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/css/now-ui-dashboard.css?v=2" rel="stylesheet" />
+    <link href="/assets/css/now-ui-dashboard.css?v=2.3" rel="stylesheet" />
     
 </head>
 
 <body class="">
-    <div class="wrapper ">
-        <div class="main-panel">
+    <div class="wrapper">
+        <div class="main-panel" style="width:100%">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
                 <div class="container-fluid">
@@ -31,7 +31,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand">@yield('navbar-title')</a>
+                        <a class="navbar-brand">Agen Marketing PT.BAF</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -49,7 +49,7 @@
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo" target="_blank">
+                                <a class="nav-link" href="https://www.asriloka.com" target="_blank">
                                     <i class="now-ui-icons media-2_sound-wave"></i>
                                     <p>
                                         <span class=" d-md-block">Asriloka.com</span>
@@ -61,41 +61,44 @@
                 </div>
             </nav>
             <!-- End Navbar -->
-            @yield('panel')
-            <div class="content">
-                @yield('content')
+            <div class="panel-header panel-header-sm">
             </div>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="https://www.creative-tim.com">
-                                    Creative Tim
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://presentation.creative-tim.com">
-                                    About Us
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://blog.creative-tim.com">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>, Designed by
-                        <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            <div class="content">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                            @foreach($user as $u)
+                                <div class="col-6 col-md-3">
+                                    <a href="https://marketing.asriloka.com/u/{{$u->no_kepegawaian}}" style="color:black">
+                                        <div class="card" style="border:solid 1px #d3d3d3; height:90%">
+                                            @if($u->image != NULL)
+                                            <img class="card-img-top-agen" src="https://marketing.asriloka.com/public/profile_pic/{{$u->no_kepegawaian}}/{{$u->image}}" alt="Profile Picture">
+                                            @else
+                                            <img class="card-img-top-agen" src="https://www.cobdoglaps.sa.edu.au/wp-content/uploads/2017/11/placeholder-profile.jpg" alt="Profile Picture">
+                                            @endif
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{$u->name}}</h5>
+                                                <p class="card-text">{{$u->phone_number}}</p>
+                                                <p class="card-text">{{$u->display_email}}</p>
+                                                <p class="card-category">{{$u->no_kepegawaian}}</p>
+                                            </div>
+                                            <div class="card-footer">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
 </body>

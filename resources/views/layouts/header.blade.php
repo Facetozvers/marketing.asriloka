@@ -13,9 +13,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- CSS Files -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/css/now-ui-dashboard.css?v=1.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/assets/demo/demo.css" rel="stylesheet" />
+    <link href="/assets/css/now-ui-dashboard.css?v=2.3" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -25,11 +23,8 @@
             Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
             -->
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                    CT
-                </a>
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                    Asriloka
+                <a href="https://marketing.asriloka.com" class="simple-text logo-normal">
+                    <strong>Asriloka</strong>
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -116,7 +111,7 @@
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo" target="_blank">
+                                <a class="nav-link" href="https://asriloka.com" target="_blank">
                                     <i class="now-ui-icons media-2_sound-wave"></i>
                                     <p>
                                         <span class=" d-md-block">Asriloka.com</span>
