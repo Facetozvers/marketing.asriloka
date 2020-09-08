@@ -29,14 +29,14 @@ class ListingController extends Controller
     }
 
     public function detail($id){
-        $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
+        $data = DB::table('listings')->where('listings.id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         $lister = DB::table('users')->where('no_kepegawaian','=',$data->lister_id)->select('users.name','users.phone_number','users.no_kepegawaian','users.display_email')->first();
         $images = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/listing_pic/'.$data->listing_id);
         return view('listing.detail', ['listings' => $data, 'lister' => $lister, 'images' => $images]);
     }
 
     public function editPage($id){
-        $data = DB::table('listings')->where('id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
+        $data = DB::table('listings')->where('listings.id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         
         return view('listing.edit', ['listings' => $data]);
     }
