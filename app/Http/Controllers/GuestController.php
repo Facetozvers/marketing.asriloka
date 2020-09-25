@@ -46,4 +46,32 @@ class GuestController extends Controller
         }
         
     }
+
+    //khusus agen synthesishomes
+    public function synthesishomes(){
+        $user = DB::table('users')
+        ->where('no_kepegawaian','BAF1108020014')
+        ->orWhere('no_kepegawaian','BAF1108020011')
+        ->orWhere('no_kepegawaian','BAF1108020021')
+        ->orWhere('no_kepegawaian','BAF1108020015')
+        ->orWhere('no_kepegawaian','BAF1108020016')
+        ->orWhere('no_kepegawaian','BAF1108020022')
+        ->orWhere('no_kepegawaian','BAF1108020009')
+        ->orWhere('no_kepegawaian','BAF1108020013')
+        ->orWhere('no_kepegawaian','BAF1108020007')
+        ->orWhere('no_kepegawaian','BAF1109020001')
+        ->select('id','no_kepegawaian','name','phone_number','display_email')->inRandomOrder()->get();
+        
+        foreach($user as $u){
+            if(\File::exists('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$u->no_kepegawaian)){
+            $user_image = \File::allFiles('/home/asriloka/marketing.asriloka.com/public/profile_pic/'.$u->no_kepegawaian);
+            $u->image = $user_image[0]->getFileName();
+            }
+            else{
+                $u->image = NULL;
+            }
+        }
+
+        return view('profile.all_agent', ['user' => $user]);
+    }
 }

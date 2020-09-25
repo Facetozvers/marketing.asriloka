@@ -49,4 +49,6 @@ Route::post('/transaction/akad/upload', 'TransaksiController@uploadAkad');
 
 Route::get('/koneksi', 'DownlineController@index');
 
+//khusus synthesishomes agent
+Route::get('/agen/synthesishomes', 'GuestController@synthesishomes');
 
