@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Listing;
 use App\ListingFacilities;
 use App\User;
+use App\UserRefLink;
 
 class ListingController extends Controller
 {
@@ -18,14 +19,17 @@ class ListingController extends Controller
 
     public function allListing(Request $request){
         $listings = Listing::where('Approval', 'Approved')->get();
+        $ref = UserRefLink::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
 
-        return view('listing.all_listing', ['listings' => $listings]);
+        return view('listing.all_listing', ['listings' => $listings, 'ref' => $ref]);
     }
     
     public function listingsaya(){
         
         $listings = Listing::where('lister_id', Auth::user()->no_kepegawaian)->get();
-        return view('listing.index', ['listings' => $listings]);
+        $ref = UserRefLink::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
+
+        return view('listing.index', ['listings' => $listings, 'ref' => $ref]);
     }
 
     public function detail($id){
