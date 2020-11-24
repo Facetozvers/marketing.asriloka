@@ -39,6 +39,12 @@
                                 <input type="text" class="form-control" name="harga_jual" required>
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Nomor Rumah / Blok</label>
+                                <input type="text" class="form-control" name="nomor_rumah" required>
+                            </div>
+                        </div>
                     </div>
                         <label> Bukti Transaksi :</label><br>
                         <input type="file" name="bukti_transaksi" required><br>

@@ -16,6 +16,18 @@ class TransaksiController extends Controller
         return view('transaksi.index', ['transaksis' => $transaksis]);
     }
 
+    public function closingDecline($no_transaksi){
+        $transaksi = TransaksiProperti::where('no_transaksi', $no_transaksi)->first();
+        if($transaksi->sales_id == Auth::user()->no_kepegawaian){
+            $transaksi->status = "Batal";
+            $transaksi->save();
+            return redirect('/transaction')->with(['message' => 'Transaksi Telah Dibatalkan!', 'alert-class' => 'alert-danger']);
+        }
+        else{
+            return abort(404);
+        }
+    }
+
     public function uploadPage($id){
         $transaksi_properti = TransaksiProperti::where('listing_id', $id)->orderBy('number', 'desc')->first();
         $listing = Listing::where('id', $id)->first();
@@ -43,6 +55,7 @@ class TransaksiController extends Controller
             $transaksi->listing_id = $listing->id_properti;
             $transaksi->sales_id = Auth::user()->no_kepegawaian;
             $transaksi->status = "Closing";
+            $transaksi->nomor_rumah = $request->nomor_rumah;
             $transaksi->lister_id = $lister;
             $transaksi->urlClosing = $namaFile;
             $transaksi->pembeli = $request->pembeli;
@@ -80,7 +93,7 @@ class TransaksiController extends Controller
 
     public function uploadAkad(Request $request){
         $user = User::where('no_kepegawaian', Auth::user()->no_kepegawaian)->first();
-     
+        
         if($user->no_kepegawaian != $request->lister_id){
             return redirect('/transaction')->with(['message' => 'Hanya Pelisting yang dapat mengupload bukti akad!', 'alert-class' => 'alert-danger']);
         }

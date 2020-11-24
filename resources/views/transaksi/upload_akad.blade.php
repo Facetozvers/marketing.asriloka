@@ -21,7 +21,9 @@
                 </div>
                 
                 <h5>Upload Bukti Transaksi :</h5>
-                <p>Nomor Transaksi : {{$transaksi->no_transaksi}}</p>
+                <label>Nomor Transaksi : {{$transaksi->no_transaksi}}</label><br>
+                <label>Nama Pembeli : {{$transaksi->pembeli}}</label><br>
+                <label>Nomor Rumah : {{$transaksi->nomor_rumah}}</label><br>
                     <form action="/transaction/akad/upload" method="POST" enctype="multipart/form-data">
                     @csrf
                         <h5>Bukti Akad :</h5>

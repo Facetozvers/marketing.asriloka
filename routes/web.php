@@ -35,6 +35,7 @@ Route::get('/listing/detail/{id}', 'ListingController@detail');
 Route::get('/listing/edit/{id}', 'ListingController@editPage');
 Route::get('/listing/new', 'ListingController@new');
 Route::post('/listing/new', 'ListingController@request');
+Route::get('/listing/sold/{listing_id}', 'ListingController@listingSold');
 
 Route::get('/listing/upload/{id}', 'TransaksiController@uploadPage');
 Route::post('/listing/upload', 'TransaksiController@uploadClosing');
@@ -46,6 +47,7 @@ Route::get('/training/detail/{id}', 'TrainingController@detail');
 Route::get('/transaction', 'TransaksiController@index');
 Route::get('/transaction/akad/{id}', 'TransaksiController@uploadAkadPage');
 Route::post('/transaction/akad/upload', 'TransaksiController@uploadAkad');
+Route::get('/transaction/decline/{no_transaksi}', 'TransaksiController@closingDecline');
 
 Route::get('/koneksi', 'DownlineController@index');
 

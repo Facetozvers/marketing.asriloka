@@ -30,6 +30,7 @@
                                 <select class="form-control" id="" name="jenis_listing">
                                     <option value="Rumah" selected>Rumah</option>
                                     <option value="Apartemen">Apartemen</option>
+                                    <option value="Perumahan">Perumahan</option>
                                     <option value="Tanah">Tanah</option>
                                     <option value="Ruko">Ruko</option>
                                 </select> 
@@ -190,7 +191,19 @@
                                 <span class="form-check-sign">Gym</span>
                             </label>
                         </div>
-                        
+                    </div>
+                    </div>
+                    <label for="">Lain - Lain</label>
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="form-check">
+                            <label class="form-check-label pr-3">
+                                <input type="hidden" value="0" name="unit_ganda"> <!--Value ketika unchecked -->
+                                <input class="form-check-input" name="unit_ganda" value="1" type="checkbox">
+                                <span class="form-check-sign">Unit Ganda</span>
+                            </label>
+                            <p class="pt-1" style="font-size:12px">*centang jika listing memiliki lebih dari 1 unit</p>
+                        </div>
                     </div>
                     </div>
                     <div class="row">

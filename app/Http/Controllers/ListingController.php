@@ -32,6 +32,20 @@ class ListingController extends Controller
         return view('listing.index', ['listings' => $listings, 'ref' => $ref]);
     }
 
+    public function listingSold($listing_id){
+        $listing = Listing::where('id', $listing_id)->first();
+        if(Auth::user()->no_kepegawaian == $listing->lister_id){
+            $listing->Approval = "Sold Out";
+            $listing->save();
+
+            return redirect('/listing')->with(['message' => 'Status Listing Berhasil Diubah', 'alert-class' => 'alert-success']);
+        }
+
+        else{
+            return abort(404);
+        }
+    }
+
     public function detail($id){
         $data = DB::table('listings')->where('listings.id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         $lister = DB::table('users')->where('no_kepegawaian','=',$data->lister_id)->select('users.name','users.phone_number','users.no_kepegawaian','users.display_email')->first();
@@ -65,6 +79,7 @@ class ListingController extends Controller
         $listing->kamar_mandi = $request->kamar_mandi;
         $listing->garasi = $request->garasi;
         $listing->luas = $request->luas;
+        $listing->unit_ganda = $request->unit_ganda;
         $listing->TipePenjualan = $request->TipePenjualan;
         $listing->statusTanah = $request->statusTanah;
         $listing->Approval = "Pending";

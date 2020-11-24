@@ -1,5 +1,5 @@
 @extends('layouts.header')
-@section('title', 'Listing Saya')
+@section('title', 'Transaksi Saya')
 @section('navbar-title', 'Listing')
 @section('panel')
     <div class="panel-header panel-header-sm">
@@ -82,9 +82,10 @@
                                         <i class="now-ui-icons loader_gear"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item">Kunjungi Laman Properti</a>
-                                        <a class="dropdown-item" href="/transaction/akad/{{$transaksi->id}}">Upload Bukti Akad</a>
-                                        <a class="dropdown-item text-danger" href="#">Batalkan Transaksi</a>
+                                        <a class="dropdown-item" href="https://asriloka.com/properti/{{$transaksi->listing_id}}">Kunjungi Laman Properti</a>
+                                        <a class="dropdown-item {{$transaksi->status === 'Closing' ? '' : 'disabled'}}" {{$transaksi->status == "Closing" ? "href=/transaction/akad/$transaksi->id" : ""}}>Upload Bukti Akad</a>
+                                        
+                                        <a class="dropdown-item text-danger" href="/transaction/decline/{{$transaksi->no_transaksi}}">Batalkan Transaksi</a>
                                     </div>
                                 </div>
                                 </td>
