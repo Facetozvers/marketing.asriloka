@@ -1,6 +1,6 @@
 @extends('layouts.header')
-@section('title', 'Listing Saya')
-@section('navbar-title', 'Listing')
+@section('title', 'Edit | Listing Saya')
+@section('navbar-title', 'Edit Listing')
 @section('panel')
     <div class="panel-header panel-header-sm">
     </div>
@@ -28,10 +28,10 @@
                             <div class="form-group">
                                 <label>Jenis</label>
                                 <select class="form-control" id="" name="jenis_listing">
-                                    <option value="Rumah" selected>Rumah</option>
-                                    <option value="Apartemen">Apartemen</option>
-                                    <option value="Tanah">Tanah</option>
-                                    <option value="Ruko">Ruko</option>
+                                    <option value="Rumah" {{$data->jenis_listing == 'Rumah' ? 'selected' : ''}}>Rumah</option>
+                                    <option value="Apartemen" {{$data->jenis_listing == 'Apartemen' ? 'selected' : ''}}>Apartemen</option>
+                                    <option value="Tanah" {{$data->jenis_listing == 'Tanah' ? 'selected' : ''}}>Tanah</option>
+                                    <option value="Ruko" {{$data->jenis_listing == 'Ruko' ? 'selected' : ''}}>Ruko</option>
                                 </select> 
                             </div>
                         </div>
@@ -41,10 +41,10 @@
                             <div class="form-group">
                                 <label>Sertifikat</label>
                                 <select class="form-control" name="statusTanah" id="">
-                                    <option value="Hak Milik" selected>Hak Milik</option>
-                                    <option value="Hak Pakai">Hak Pakai</option>
-                                    <option value="Girik">Girik</option>
-                                    <option value="HGB">HGB</option>
+                                    <option value="Hak Milik" {{$data->statusTanah == 'Hak Milik' ? 'selected' : ''}}>Hak Milik</option>
+                                    <option value="Hak Pakai" {{$data->statusTanah == 'Hak Pakai' ? 'selected' : ''}}>Hak Pakai</option>
+                                    <option value="Girik" {{$data->statusTanah == 'Girik' ? 'selected' : ''}}>Girik</option>
+                                    <option value="HGB" {{$data->statusTanah == 'HGB' ? 'selected' : ''}}>HGB</option>
                                 </select> 
                             </div>
                         </div>
@@ -52,9 +52,9 @@
                             <div class="form-group">
                                 <label>Tipe Penjualan</label>
                                 <select class="form-control" name="TipePenjualan" id="">
-                                    <option value="jual" selected>Jual</option>
-                                    <option value="sewa">Sewa</option>
-                                    <option value="both">Jual dan Sewa</option>
+                                    <option value="jual" {{$data->TipePenjualan == 'jual' ? 'selected' : ''}}>Jual</option>
+                                    <option value="sewa" {{$data->TipePenjualan == 'sewa' ? 'selected' : ''}}>Sewa</option>
+                                    <option value="both" {{$data->TipePenjualan == 'both' ? 'selected' : ''}}>Jual dan Sewa</option>
                                 </select> 
                             </div>
                         </div>
@@ -124,8 +124,8 @@
                         <div class="form-group">
                             <label>Perabotan</label>
                             <select class="form-control" name="perabotan" id="">
-                                <option value="Unfurnished" selected>Unfurnished</option>
-                                <option value="Furnished">Furnished</option>
+                                <option value="Unfurnished" {{$data->perabotan == 'Unfurnished' ? 'selected' : ''}}>Unfurnished</option>
+                                <option value="Furnished" {{$data->perabotan == 'Furnished' ? 'selected' : ''}}>Furnished</option>
                             </select>
                         </div>            
                         </div>    
@@ -139,8 +139,8 @@
                         <div class="form-group">
                             <label>Air</label>
                             <select class="form-control" name="air" id="">
-                                <option value="PAM" selected>PAM</option>
-                                <option value="Sumur Tanah">Sumur Tanah</option>
+                                <option value="PAM" {{$data->air == 'PAM' ? 'selected' : ''}}>PAM</option>
+                                <option value="Sumur Tanah" {{$data->air == 'Sumur Tanah' ? 'selected' : ''}}>Sumur Tanah</option>
                             </select>
                         </div>
                         </div>                
@@ -148,9 +148,9 @@
                         <div class="form-group">
                             <label>Jenis Lantai</label>
                             <select class="form-control" name="jenis_lantai" id="">
-                                <option value="Keramik" selected>Keramik</option>
-                                <option value="Granit">Granit</option>
-                                <option value="Kayu">Kayu</option>
+                                <option value="Keramik" {{$data->jenis_lantai == 'Keramik' ? 'selected' : ''}}>Keramik</option>
+                                <option value="Granit" {{$data->jenis_lantai == 'Granit' ? 'selected' : ''}}>Granit</option>
+                                <option value="Kayu" {{$data->jenis_lantai == 'Kayu' ? 'selected' : ''}}>Kayu</option>
                             </select>
                         </div>       
                         </div>        
@@ -161,56 +161,61 @@
                         <div class="form-check">
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="carport"> <!--Value ketika unchecked -->
-                                <input class="form-check-input" name="carport" value="1" type="checkbox">
+                                <input class="form-check-input" name="carport" value="1" type="checkbox" {{$data->carport == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Carport</span>
                             </label>
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="swimming_pool">
-                                <input class="form-check-input" name="swimming_pool" value="1" type="checkbox">
+                                <input class="form-check-input" name="swimming_pool" value="1" type="checkbox" {{$data->swimming_pool == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Kolam Renang</span>
                             </label>
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="restaurant">
-                                <input class="form-check-input" name="restaurant" value="1" type="checkbox">
+                                <input class="form-check-input" name="restaurant" value="1" type="checkbox" {{$data->restaurant == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Restoran</span>
                             </label>
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="garden">
-                                <input class="form-check-input" name="garden" value="1" type="checkbox">
+                                <input class="form-check-input" name="garden" value="1" type="checkbox" {{$data->garden == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Taman</span>
                             </label>
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="security">
-                                <input class="form-check-input" name="security" value="1" type="checkbox">
+                                <input class="form-check-input" name="security" value="1" type="checkbox" {{$data->security == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Security</span>
                             </label>
                             <label class="form-check-label pr-3">
                                 <input type="hidden" value="0" name="gym">
-                                <input class="form-check-input" name="gym" value="1" type="checkbox">
+                                <input class="form-check-input" name="gym" value="1" type="checkbox" {{$data->gym == 1 ? 'checked' : ''}}>
                                 <span class="form-check-sign">Gym</span>
                             </label>
                         </div>
                         
                     </div>
                     </div>
+                    <label for="">Lain - Lain</label>
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="form-check">
+                            <label class="form-check-label pr-3">
+                                <input type="hidden" value="0" name="unit_ganda"> <!--Value ketika unchecked -->
+                                <input class="form-check-input" name="unit_ganda" value="1" type="checkbox" disabled {{$data->unit_ganda == 1 ? 'checked' : ''}}>
+                                <span class="form-check-sign">Unit Ganda</span>
+                            </label>
+                            <p class="pt-1" style="font-size:12px">*centang jika listing memiliki lebih dari 1 unit</p>
+                        </div>
+                    </div>
+                    </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Deskripsi Tambahan</label>
-                                <textarea style="border: solid 1px grey" value="{{$data->desc}}" class="form-control" name="desc" id="" cols="30" rows="20" required></textarea>
+                                <textarea style="border: solid 1px grey" class="form-control" name="desc" id="" cols="30" rows="20" required>{{$data->desc}}</textarea>
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="btn1">Tambah Gambar</button>
-                    <div class="row" id="gambar">
-                        <div class="col-3">
-                        <div class="form-group" id="pic">
-                            <label>Gambar</label>
-                            <input type="file" name="gambar[]" class="form-control-file">
-                        </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>     

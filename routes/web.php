@@ -32,10 +32,17 @@ Route::post('/profile/delete_pic', 'ProfileController@deletePic');
 Route::get('/listing', 'ListingController@listingsaya');
 Route::get('/listing/all', 'ListingController@allListing');
 Route::get('/listing/detail/{id}', 'ListingController@detail');
-Route::get('/listing/edit/{id}', 'ListingController@editPage');
 Route::get('/listing/new', 'ListingController@new');
 Route::post('/listing/new', 'ListingController@request');
 Route::get('/listing/sold/{listing_id}', 'ListingController@listingSold');
+
+//edit
+Route::get('/listing/edit/{id}', 'ListingController@editPage');
+Route::post('/listing/edit/{id}', 'ListingController@edit');
+Route::get('/listing/editImage/{id}', 'ImageController@editImagePage');
+Route::post('/listing/editImage/{id}', 'ImageController@uploadImage');
+Route::post('/deleteImage', 'ImageController@deleteImage');
+
 
 Route::get('/listing/upload/{id}', 'TransaksiController@uploadPage');
 Route::post('/listing/upload', 'TransaksiController@uploadClosing');

@@ -54,9 +54,62 @@ class ListingController extends Controller
     }
 
     public function editPage($id){
+        //check pelisting
+        $listing = DB::table('listings')->where('listings.id','=', $id)->select('lister_id')->first();
+        if(Auth::user()->no_kepegawaian != $listing->lister_id){
+            abort(404);
+        }
         $data = DB::table('listings')->where('listings.id','=', $id)->join('listing_facilities', 'listings.id', '=', 'listing_facilities.listing_id')->first();
         
-        return view('listing.edit', ['listings' => $data]);
+        return view('listing.edit', ['data' => $data]);
+    }
+
+    public function edit($id, Request $request){
+        //check pelisting
+        $listing = DB::table('listings')->where('listings.id','=', $id)->select('lister_id')->first();
+        if(Auth::user()->no_kepegawaian != $listing->lister_id){
+            abort(404);
+        }
+
+        $listing = Listing::where('id', $id)->first();
+
+        $listing->nama_listing = $request->judul;
+        $listing->jenis_listing = $request->jenis_listing;
+        $listing->kota = $request->kota;
+        $listing->wilayah = $request->wilayah;
+        $listing->alamat_detail = $request->alamat_detail;
+        $listing->harga = $request->harga;
+        $listing->persenan = $request->persenan;
+        $listing->desc = $request->desc;
+        $listing->kamar = $request->kamar;
+        $listing->kamar_mandi = $request->kamar_mandi;
+        $listing->garasi = $request->garasi;
+        $listing->luas = $request->luas;
+        $listing->TipePenjualan = $request->TipePenjualan;
+        $listing->statusTanah = $request->statusTanah;
+        $listing->save();
+
+        $listing_facilities = ListingFacilities::where('listing_id', $id)->first();
+
+        $listing_facilities->carport = $request->carport;
+        $listing_facilities->swimming_pool = $request->swimming_pool;
+        $listing_facilities->garden = $request->garden;
+        $listing_facilities->security = $request->security;
+        $listing_facilities->gym = $request->gym;
+        $listing_facilities->restaurant = $request->restaurant;
+        $listing_facilities->air = $request->air;
+        $listing_facilities->daya_listrik = $request->daya_listrik;
+        $listing_facilities->perabotan = $request->perabotan;
+        $listing_facilities->jenis_lantai = $request->jenis_lantai;
+        $listing_facilities->save();
+
+        if($listing->save() && $listing_facilities->save()){
+            return redirect('/listing')->with(['message' => 'Perubahan Berhasil Disimpan!', 'alert-class' => 'alert-success']);
+        }
+        else
+        {
+            return redirect('/listing')->with(['message' => 'Request gagal!', 'alert-class' => 'alert-danger']);
+        }
     }
 
     public function new(){

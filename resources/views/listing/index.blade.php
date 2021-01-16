@@ -67,6 +67,8 @@
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="/listing/detail/{{$listing->id}}">Lihat Detail</a>
+                                        <a class="dropdown-item" href="/listing/edit/{{$listing->id}}">Edit Informasi Listing</a>
+                                        <a class="dropdown-item" href="/listing/editImage/{{$listing->id}}">Edit Gambar</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != "Pending" ? "href=https://asriloka.com/properti/$listing->id_properti" : ""}}>Kunjungi Laman</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}}" {{$listing->Approval != "Pending" ? "href=https://asriloka.com/properti/$listing->id_properti?ref=".$ref->ref : ""}}>Kunjungi Laman Sebagai Marketing</a>
                                         <a class="dropdown-item {{$listing->Approval === 'Pending' ? 'disabled' : ''}} {{$listing->Approval === 'Sold Out' ? 'disabled' : ''}}" {{$listing->Approval == "Approved" ? "href=/listing/sold/$listing->id" : ""}}>Ubah Menjadi Sold Out</a>
