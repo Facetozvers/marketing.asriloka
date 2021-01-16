@@ -54,6 +54,12 @@ class ImageController extends Controller
             abort(404);
         }
 
+        //can't delete the last image
+        $images = \File::allFiles(public_path('listing_pic/'.$request->listing_id));
+        if(count($images) < 2){
+            return redirect('/listing/editImage/'.$request->listing_id)->with(['message' => 'Harus ada minimal 1 gambar!', 'alert-class' => 'alert-danger']);
+        }
+
         $data = Listing::where('id', $request->listing_id)->first();
         File::delete($data->picUrl.'/'.$request->namaFile);
 
